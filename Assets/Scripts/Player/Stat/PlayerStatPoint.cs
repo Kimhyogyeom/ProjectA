@@ -67,6 +67,7 @@ public class PlayerStatPoint : MonoBehaviour
             playerStats.playerMpQConsumption -= 1;
             levelUpText.text = $"Level up! +{playerStats.playerStatPoint}";
             maxPointQ += 1;
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.buttonClickClip);
             if (playerStats.playerStatPoint <= 0)
             {
                 levelUpText.gameObject.SetActive(false);
@@ -91,6 +92,7 @@ public class PlayerStatPoint : MonoBehaviour
             playerStats.playerMpWConsumption -= 1;
             levelUpText.text = $"Level up! +{playerStats.playerStatPoint}";
             maxPointW += 1;
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.buttonClickClip);
             if (playerStats.playerStatPoint <= 0)
             {
                 levelUpText.gameObject.SetActive(false);
@@ -115,6 +117,7 @@ public class PlayerStatPoint : MonoBehaviour
             playerStats.playerMpEConsumption -= 1;
             levelUpText.text = $"Level up! +{playerStats.playerStatPoint}";
             maxPointE += 1;
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.buttonClickClip);
             if (playerStats.playerStatPoint <= 0)
             {
                 levelUpText.gameObject.SetActive(false);
@@ -139,6 +142,7 @@ public class PlayerStatPoint : MonoBehaviour
             playerStats.playerMpRConsumption -= 1;
             levelUpText.text = $"Level up! +{playerStats.playerStatPoint}";
             maxPointR += 1;
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.buttonClickClip);
             if (playerStats.playerStatPoint <= 0)
             {
                 levelUpText.gameObject.SetActive(false);

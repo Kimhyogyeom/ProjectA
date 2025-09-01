@@ -21,6 +21,7 @@ public class GetGoldText : MonoBehaviour
                 goldTextObjectTexts[i].text = $"+G {goldText}";
                 currentGold.text = (int.Parse(currentGold.text) + int.Parse(goldText)).ToString();
                 playerStats.playerGold = int.Parse(currentGold.text);
+                SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.goldGetClip);
                 StartCoroutine(getTextDisable(goldTextObjects[i]));
                 break;
             }

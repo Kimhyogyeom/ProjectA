@@ -269,9 +269,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enumyHpBar: {fileID: 1261611508697905791}
-  enumyMaxHp: 1111
-  enumyHp: 1111
-  enemyDamage: 1111
+  enumyMaxHp: 10
+  enumyHp: 10
+  enemyDamage: 2
   enumyAttackSpeed: 3
   enumyExpResult: 50
 --- !u!114 &1261611508697905791

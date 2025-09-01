@@ -35,6 +35,7 @@ public class InventoryItemDown : MonoBehaviour, IPointerEnterHandler, IDropHandl
         // 드래그 아이템을 슬롯에 배치
         draggedItem.SetParent(transform);
         draggedItem.GetComponent<RectTransform>().position = rectTransform.position;
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemDrop);
     }
 
 }

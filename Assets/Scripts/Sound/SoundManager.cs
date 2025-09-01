@@ -1,18 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static SoundManager Instance;
+
+    [Header("Audio Sources")]
+    public AudioSource sfxUISource;
+    public AudioSource sfxSource;
+
+    [Header("Database")]
+    public SoundDatabase soundDatabase;
+
+    private void Awake()
     {
-        
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    // SFX UI
+    public void PlaySfxUI(AudioClip clip, float volume = 1f)
     {
-        
+        print("1");
+        if (clip == null) return;
+        sfxUISource.PlayOneShot(clip, volume);
     }
+
+    // SFX
+    public void PlaySfx(AudioClip clip, float volume = 1f)
+    {
+        print("2");
+        if (clip == null) return;
+        sfxSource.PlayOneShot(clip, volume);
+    }
+
 }

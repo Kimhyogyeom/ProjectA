@@ -21,6 +21,7 @@ public class ObjectTweenEffect : MonoBehaviour
     public void GameVictory()
     {
         vicObject.gameObject.SetActive(true);
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.systemMessageVictory);
         vicObject.anchoredPosition3D = hiddenPos;
 
         vicObject.DOAnchorPos3D(startPos, 3f)

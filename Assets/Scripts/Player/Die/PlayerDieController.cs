@@ -43,6 +43,7 @@ public class PlayerDieController : MonoBehaviour
         float waitTime = level * 5f;
 
         StartCoroutine(ResurrectionCooldown(waitTime));
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.playerDieClip);
     }
 
     private IEnumerator ResurrectionCooldown(float waitTime)
@@ -74,5 +75,6 @@ public class PlayerDieController : MonoBehaviour
         dieBackground.SetActive(false);
 
         playerStats.PlayerResurrection();
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.playerResurrectionClip);
     }
 }

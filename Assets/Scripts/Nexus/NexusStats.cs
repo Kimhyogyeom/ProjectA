@@ -42,6 +42,7 @@ public class NexusStats : MonoBehaviour
                 objectTweenEffect.GameDefeat();
             }
             GameManager.Instance.gameState = GameManager.GameState.Stop;
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.nexusBreakClip);
             Destroy(this.gameObject);
             // StartCoroutine(DestoryNexus());
         }

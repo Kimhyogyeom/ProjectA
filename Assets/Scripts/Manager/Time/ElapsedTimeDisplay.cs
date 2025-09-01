@@ -7,6 +7,7 @@ public class ElapsedTimeDisplay : MonoBehaviour
     private float elapsedTime = 0f;
     private float nextPopupTime = 0f;
     [SerializeField] private SystemMessage systemMessage;
+    private int systemMessagCount = 0;
     public void ElapsedResult()
     {
         elapsedTime += Time.deltaTime;
@@ -21,6 +22,19 @@ public class ElapsedTimeDisplay : MonoBehaviour
             {
                 systemMessage.SystemMessagePopup();
                 nextPopupTime += 30f;
+                if (systemMessagCount == 0)
+                {
+                    SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.systemMessage0Sec, 0.7f);
+                }
+                else if (systemMessagCount == 1)
+                {
+                    SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.systemMessage30Sec, 0.7f);
+                }
+                else if (systemMessagCount == 2)
+                {
+                    SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.systemMessage60Sec, 0.7f);
+                }
+                systemMessagCount++;
             }
         }
     }

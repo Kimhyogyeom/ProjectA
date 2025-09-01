@@ -213,21 +213,25 @@ public class PlayerSkillController : MonoBehaviour
             {
                 playerStats.playerMp -= playerStats.playerMpQConsumption;
                 // playerMpBar.MpBarUpdate(playerStats.playerMp, playerStats.playerMaxMp);
+                SoundManager.Instance.PlaySfx(SoundManager.Instance.soundDatabase.playerSkill01Clip);
             }
             else if (skill == skills[1])
             {
                 playerStats.playerMp -= playerStats.playerMpWConsumption;
                 // playerMpBar.MpBarUpdate(playerStats.playerMp, playerStats.playerMaxMp);
+                SoundManager.Instance.PlaySfx(SoundManager.Instance.soundDatabase.playerSkill02Clip);
             }
             else if (skill == skills[2])
             {
                 playerStats.playerMp -= playerStats.playerMpEConsumption;
                 // playerMpBar.MpBarUpdate(playerStats.playerMp, playerStats.playerMaxMp);
+                SoundManager.Instance.PlaySfx(SoundManager.Instance.soundDatabase.playerSkill03Clip);
             }
             else if (skill == skills[3])
             {
                 playerStats.playerMp -= playerStats.playerMpRConsumption;
                 // playerMpBar.MpBarUpdate(playerStats.playerMp, playerStats.playerMaxMp);
+                SoundManager.Instance.PlaySfx(SoundManager.Instance.soundDatabase.playerSkill04Clip);
             }
 
             skill.skillRangeQuadParent.gameObject.SetActive(false);

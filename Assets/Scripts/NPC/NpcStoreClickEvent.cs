@@ -5,6 +5,7 @@ public class NpcStoreClickEvent : MonoBehaviour
     [SerializeField] private GameObject storePanel;
     [SerializeField] private Camera mainCamera;
     [SerializeField] private Animator storeNpcAnimator;
+    [SerializeField] private GameObject storeObject;
 
     void Update()
     {
@@ -20,7 +21,13 @@ public class NpcStoreClickEvent : MonoBehaviour
             {
                 storeNpcAnimator.SetTrigger("IsClick");
                 storePanel.SetActive(true);
+                SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.buttonClickClip);
             }
         }
+    }
+    public void OnDisableGameobject()
+    {
+        storeObject.SetActive(false);
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.buttonClickClip);
     }
 }

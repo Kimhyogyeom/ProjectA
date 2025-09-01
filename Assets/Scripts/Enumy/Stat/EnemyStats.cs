@@ -42,6 +42,7 @@ public class EnemyStats : MonoBehaviour
             playerExpBar.ExpBarUpdate(enumyExpResult);
             getGoldText.GetGold(enumyGoldResult.ToString());
             EnemyManager.Instance.UnregisterMinion(this.gameObject);
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.enemyDie);
             Destroy(this.gameObject);
         }
     }
@@ -55,6 +56,7 @@ public class EnemyStats : MonoBehaviour
             // playerExpBar.ExpBarUpdate(enumyExpResult);
             // getGoldText.GetGold(enumyGoldResult.ToString());
             EnemyManager.Instance.UnregisterMinion(this.gameObject);
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.enemyDie);
             Destroy(this.gameObject);
         }
     }
@@ -68,6 +70,7 @@ public class EnemyStats : MonoBehaviour
             // playerExpBar.ExpBarUpdate(enumyExpResult);
             // getGoldText.GetGold(enumyGoldResult.ToString());
             EnemyManager.Instance.UnregisterMinion(this.gameObject);
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.enemyDie);
             Destroy(this.gameObject);
         }
     }

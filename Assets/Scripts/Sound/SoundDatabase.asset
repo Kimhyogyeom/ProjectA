@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec4927447d0adab4c992505d5014e58f, type: 3}
+  m_Name: SoundDatabase
+  m_EditorClassIdentifier: 
+  systemMessage0Sec: {fileID: 8300000, guid: ec43cf54421c13d4191fe7644318a646, type: 3}
+  systemMessage30Sec: {fileID: 8300000, guid: 09e222fb79872b24a8d686e643544c7f, type: 3}
+  systemMessage60Sec: {fileID: 8300000, guid: d7a78ae8e8f25d540abc867bdb955865, type: 3}
+  systemMessageVictory: {fileID: 8300000, guid: e3b16d0ceb1b5c042a0cda62884ae0d7,
+    type: 3}
+  turretBreakClip: {fileID: 8300000, guid: 3006fb48496755b49a52c7be9b15c517, type: 3}
+  nexusBreakClip: {fileID: 8300000, guid: 3006fb48496755b49a52c7be9b15c517, type: 3}
+  buttonClickClip: {fileID: 8300000, guid: 9427c39fcf093c94bb87abb495c68959, type: 3}
+  goldGetClip: {fileID: 8300000, guid: 6a055a6a253eb734b93d0582e620dbc6, type: 3}
+  enemyDie: {fileID: 8300000, guid: 7419e59585c83504b935a4e86be70284, type: 3}
+  itemDrop: {fileID: 8300000, guid: 1ccc2fb0a5489164487a7e11e94d6570, type: 3}
+  itemBuy: {fileID: 8300000, guid: a3f5f7c47a42efa4980066f8c0d93047, type: 3}
+  itemSell: {fileID: 8300000, guid: a3f5f7c47a42efa4980066f8c0d93047, type: 3}
+  itemError: {fileID: 8300000, guid: 9bebb609a09a7e34da137ad0298d20fe, type: 3}
+  playerLevelUp: {fileID: 8300000, guid: 64a67ddc1be6fc246bff945f73072d95, type: 3}
+  playerSkillLevelUp: {fileID: 0}
+  playerWalkClip: {fileID: 0}
+  playerDieClip: {fileID: 8300000, guid: 0fcccacff396a4e2b86aaab9fc07aaec, type: 3}
+  playerResurrectionClip: {fileID: 8300000, guid: 4c83c48917ba64a0596defd48992603c,
+    type: 3}
+  playerBasicAttackClip: {fileID: 8300000, guid: 9d21dc2bc89b2be47b1d3ed2cad17f3d,
+    type: 3}
+  playerSkill01Clip: {fileID: 8300000, guid: 61fa27b2c9f68475d948a8e984723357, type: 3}
+  playerSkill02Clip: {fileID: 8300000, guid: 17a64018f41d043169872a142113c3dc, type: 3}
+  playerSkill03Clip: {fileID: 8300000, guid: 00344d747eddb4f3e9aaf74bf3317103, type: 3}
+  playerSkill04Clip: {fileID: 8300000, guid: 39245139476b9427ab5d40ac04f08305, type: 3}

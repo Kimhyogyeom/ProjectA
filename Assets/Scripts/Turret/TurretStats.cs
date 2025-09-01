@@ -38,6 +38,7 @@ public class TurretStats : MonoBehaviour
 
             nexusBoomEffect.SetActive(true);
             nexusBoomEffect.GetComponent<ParticleSystem>().Play();
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.turretBreakClip);
             Destroy(this.gameObject);
         }
     }

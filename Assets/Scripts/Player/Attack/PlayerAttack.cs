@@ -44,6 +44,7 @@ public class PlayerAttack : MonoBehaviour
     {
         performMeleeAttack = false;
         playerAnim.SetBool("IsAttack", true);
+        SoundManager.Instance.PlaySfx(SoundManager.Instance.soundDatabase.playerBasicAttackClip);
         yield return new WaitForSeconds(attackInterval);
         if (!enumyGameobject)
         {

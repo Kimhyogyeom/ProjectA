@@ -33,6 +33,7 @@ public class PlayerExpBar : MonoBehaviour
             playerStats.playerStatPoint += 1;
             playerStats.playerDamage += 1;
             playerStatPoint.SKillLevelUpBtnPopup();
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.playerLevelUp);
         }
 
         playerExpBar.value = playerStats.playerExp / playerStats.playerMaxExp;

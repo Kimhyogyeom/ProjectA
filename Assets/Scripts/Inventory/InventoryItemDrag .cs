@@ -25,6 +25,7 @@ public class InventoryItemDrag : MonoBehaviour, IBeginDragHandler, IDragHandler,
         canvasGroup.blocksRaycasts = false;
 
         transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemDrop);
     }
 
     public void OnDrag(PointerEventData eventData)

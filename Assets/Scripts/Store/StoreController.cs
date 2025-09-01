@@ -34,6 +34,7 @@ public class StoreController : MonoBehaviour
         if (playerStats.playerGold - itemPlace < 0)
         {
             messageController.MessageSetting("Not enough gold!");
+            SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemError);
             return;
         }
         else
@@ -49,11 +50,13 @@ public class StoreController : MonoBehaviour
                 newItem.transform.localPosition = Vector3.zero;
                 playerStatUpdate.PlayerStatToItemUp(itemAtk, itemHp, itemMp);
                 messageController.MessageSetting("Purchase complete!");
+                SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemBuy);
                 return;
             }
         }
 
         messageController.MessageSetting("Inventory is full!");
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemError);
     }
 
     public void OnSellButtonClicked(string itemID)
@@ -70,11 +73,13 @@ public class StoreController : MonoBehaviour
                     playerStatUpdate.PlayerStatToItemDown(info.itemAtk, info.itemHp, info.itemMp);
                     Destroy(slot.GetChild(0).gameObject);
                     messageController.MessageSetting("Sale complete!");
+                    SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemBuy);
                     return;
                 }
             }
         }
 
         messageController.MessageSetting("No items to sell!");
+        SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.itemError);
     }
 }
