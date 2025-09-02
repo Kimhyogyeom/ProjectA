@@ -34,8 +34,9 @@ public class PlayerAttack : MonoBehaviour
 
         if (enumyGameobject != null && performMeleeAttack && Time.time > nextAttackTime)
         {
-            if (Vector3.Distance(transform.position, enumyGameobject.transform.position) <= playerMovement.stopDistance)
+            if (Vector3.Distance(transform.position, enumyGameobject.transform.position) <= playerMovement.stopDistance + 1.0f)
             {
+                print("Call");
                 StartCoroutine(PlayerAttackInterval());
             }
         }
