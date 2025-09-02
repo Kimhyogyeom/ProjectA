@@ -11,6 +11,7 @@ public class PlayerExpBar : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI playerLevelText;
     [SerializeField] private TextMeshProUGUI playerWorldBottomExpBar;
+    [SerializeField] private ScoreBoardController scoreBoardController;
 
     void Start()
     {
@@ -20,7 +21,7 @@ public class PlayerExpBar : MonoBehaviour
     public void ExpBarUpdate(float exp)
     {
         playerStats.playerExp += exp;
-
+        scoreBoardController.creepScore++;
         while (playerStats.playerExp >= playerStats.playerMaxExp)
         {
             playerStats.playerExp -= playerStats.playerMaxExp;
@@ -33,6 +34,7 @@ public class PlayerExpBar : MonoBehaviour
             playerStats.playerStatPoint += 1;
             playerStats.playerDamage += 1;
             playerStatPoint.SKillLevelUpBtnPopup();
+
             SoundManager.Instance.PlaySfxUI(SoundManager.Instance.soundDatabase.playerLevelUp);
         }
 

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+
     private GetGoldText getGoldText;
     private PlayerExpBar playerExpBar;
     [SerializeField] private EnumyHpBar enumyHpBar;
@@ -39,6 +40,7 @@ public class EnemyStats : MonoBehaviour
         enumyHpBar.HpVarUpdate(enumyHp, enumyMaxHp);
         if (enumyHp <= 0)
         {
+
             playerExpBar.ExpBarUpdate(enumyExpResult);
             getGoldText.GetGold(enumyGoldResult.ToString());
             EnemyManager.Instance.UnregisterMinion(this.gameObject);

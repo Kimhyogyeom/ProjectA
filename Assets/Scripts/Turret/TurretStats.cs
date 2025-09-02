@@ -14,6 +14,7 @@ public class TurretStats : MonoBehaviour
 
     [SerializeField] private NexusController nexusController;
     [SerializeField] private GameObject nexusBoomEffect;
+    [SerializeField] private ScoreBoardController scoreBoardController;
     void Start()
     {
         turretMaxHp = turretHp;
@@ -29,6 +30,7 @@ public class TurretStats : MonoBehaviour
             {
                 turretDestory.EnemyTurretDestoryIcon(number);
                 nexusController.EnemyTurretCountUp();
+                scoreBoardController.turretBreakCount++;
             }
             else if (classification == "Turret")
             {

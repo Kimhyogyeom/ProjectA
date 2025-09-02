@@ -11,6 +11,7 @@ public class PlayerDieController : MonoBehaviour
     [SerializeField] private GameObject playerMesh;
     [SerializeField] private GameObject playerCanvas;
     [SerializeField] private PlayerStats playerStats;
+    [SerializeField] private ScoreBoardController scoreBoardController;
 
     [Header("Respawn Settings")]
     [SerializeField] private Vector3 originPos;
@@ -27,6 +28,7 @@ public class PlayerDieController : MonoBehaviour
     public void PlayerDieOn()
     {
         GameManager.Instance.gameState = GameManager.GameState.Pause;
+        scoreBoardController.playerDeathCount++;
         gameObject.tag = "Untagged";
 
         playerMesh.SetActive(false);

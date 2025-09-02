@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour
 {
+
     [SerializeField] private PlayerDieController playerDieController;
     [SerializeField] private PlayerHpBar playerHpBar;
     [Header("Level")]
