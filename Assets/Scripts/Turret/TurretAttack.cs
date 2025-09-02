@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretController : MonoBehaviour
@@ -49,14 +50,18 @@ public class TurretController : MonoBehaviour
             }
         }
 
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(minionTag);
+        // GameObject[] enemies = GameObject.FindGameObjectsWithTag(minionTag);
+        List<GameObject> enemies = EnemyManager.Instance.minions;
         foreach (var enemy in enemies)
         {
-            float distance = Vector3.Distance(transform.position, enemy.transform.position);
-            if (distance <= attackRange && distance < closestDistance)
+            if (enemy.tag == minionTag)
             {
-                closestDistance = distance;
-                nearestTarget = enemy;
+                float distance = Vector3.Distance(transform.position, enemy.transform.position);
+                if (distance <= attackRange && distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    nearestTarget = enemy;
+                }
             }
         }
 

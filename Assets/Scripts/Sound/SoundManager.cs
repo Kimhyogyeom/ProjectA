@@ -22,7 +22,6 @@ public class SoundManager : MonoBehaviour
     // SFX UI
     public void PlaySfxUI(AudioClip clip, float volume = 1f)
     {
-        print("1");
         if (clip == null) return;
         sfxUISource.PlayOneShot(clip, volume);
     }
@@ -30,7 +29,6 @@ public class SoundManager : MonoBehaviour
     // SFX
     public void PlaySfx(AudioClip clip, float volume = 1f)
     {
-        print("2");
         if (clip == null) return;
         sfxSource.PlayOneShot(clip, volume);
     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float stopDistance = 2.0f;
     [SerializeField] private float aggroRange = 5.0f;
     [SerializeField] private float targetSwitchInterval = 2.0f;
+    private GameObject[] turretArray;
 
     [Header("Attack Settings")]
     [SerializeField] private float attackCooldown = 1.5f;   // 공격 간격 (초)
@@ -21,18 +23,11 @@ public class EnemyMovement : MonoBehaviour
     private Transform currentTarget;
     private float timeSinceLastTargetSwitch = 0.0f;
 
-    [SerializeField] private string nexusTag; // "EnemyNexus" 같은 태그 입력
-    private GameObject nexusObj;
+    public GameObject nexusObj;
 
     void Start()
     {
         agent.stoppingDistance = stopDistance;
-
-        // 태그로 넥서스 찾기
-        if (!string.IsNullOrEmpty(nexusTag))
-        {
-            nexusObj = GameObject.FindGameObjectWithTag(nexusTag);
-        }
 
         UpdateTarget();
     }
@@ -66,6 +61,14 @@ public class EnemyMovement : MonoBehaviour
                 TryAttack();
             }
         }
+    }
+    public void SetTargetNexus(GameObject nexus)
+    {
+        nexusObj = nexus;
+    }
+    public void SetTargetTurret(GameObject[] turret)
+    {
+        turretArray = turret;
     }
 
     private void RotateTowards(Transform target)
@@ -106,7 +109,8 @@ public class EnemyMovement : MonoBehaviour
     private void UpdateTarget()
     {
 
-        Transform closestMinion = GetClosestObjectInRadius(GameObject.FindGameObjectsWithTag(minionTag), aggroRange);
+        // Transform closestMinion = GetClosestObjectInRadius(GameObject.FindGameObjectsWithTag(minionTag), aggroRange);
+        Transform closestMinion = GetClosestObjectInRadius(EnemyManager.Instance.minions, aggroRange);
 
         if (closestMinion != null)
         {
@@ -114,7 +118,8 @@ public class EnemyMovement : MonoBehaviour
         }
         else
         {
-            Transform closestTurret = GetClosestObject(GameObject.FindGameObjectsWithTag(turretTag));
+            // Transform closestTurret = GetClosestObject(GameObject.FindGameObjectsWithTag(turretTag));
+            Transform closestTurret = GetClosestObject(turretArray);
 
             if (closestTurret != null)
             {
@@ -135,18 +140,21 @@ public class EnemyMovement : MonoBehaviour
 
         foreach (var obj in objects)
         {
-            float distance = Vector3.Distance(currentPosition, obj.transform.position);
-
-            if (distance < closestDistance)
+            if (obj != null)
             {
-                closestDistance = distance;
-                closestObject = obj.transform;
+                float distance = Vector3.Distance(currentPosition, obj.transform.position);
+
+                if (distance < closestDistance)
+                {
+                    closestDistance = distance;
+                    closestObject = obj.transform;
+                }
             }
         }
         return closestObject;
     }
 
-    private Transform GetClosestObjectInRadius(GameObject[] objects, float radius)
+    private Transform GetClosestObjectInRadius(List<GameObject> objects, float radius)
     {
         float closestDistance = Mathf.Infinity;
         Transform closestObject = null;
@@ -154,13 +162,17 @@ public class EnemyMovement : MonoBehaviour
 
         foreach (var obj in objects)
         {
-            float distance = Vector3.Distance(currentPosition, obj.transform.position);
-
-            if (distance < closestDistance && distance <= radius)
+            if (obj.tag == minionTag)
             {
-                closestDistance = distance;
-                closestObject = obj.transform;
+                float distance = Vector3.Distance(currentPosition, obj.transform.position);
+
+                if (distance < closestDistance && distance <= radius)
+                {
+                    closestDistance = distance;
+                    closestObject = obj.transform;
+                }
             }
+
         }
         return closestObject;
     }

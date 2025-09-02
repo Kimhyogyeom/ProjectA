@@ -14,6 +14,8 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject superEnemyPrefab;
+    [SerializeField] private GameObject targetNexus;
+    [SerializeField] private GameObject[] targetTurrets;
 
     [Header("Spawn Settings")]
     [SerializeField] private Transform[] spawnPoints;
@@ -71,7 +73,16 @@ public class EnemySpawner : MonoBehaviour
         Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
         GameObject enemy = Instantiate(prefab, spawnPoint.position, spawnPoint.rotation);
         EnemyManager.Instance.RegisterMinion(enemy.gameObject);
-
+        EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
+        if (enemyMovement != null)
+        {
+            enemyMovement.SetTargetNexus(targetNexus);
+            enemyMovement.SetTargetTurret(targetTurrets);
+        }
+        else
+        {
+            Debug.Log($"EnemyMovement check Go");
+        }
         NavMeshAgent agent = enemy.GetComponent<NavMeshAgent>();
         if (agent != null)
         {
@@ -79,7 +90,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log($"Nav check Go");
+            Debug.Log($"NavMeshAgent check Go");
         }
     }
 }
