@@ -4,7 +4,7 @@
 
 ● OS : Window<br>
 ● Unity Version : 2022.3.60f1<br>
-● 작업기간 8월 9일 ~ (진행중)<br>
+● 작업기간 8월 9일 ~ 9월 3일<br>
 
 
 목차
@@ -41,6 +41,10 @@
 ● 마우스 ( 몬스터 / 포탑 / 넥서스 클릭 ) : 캐릭터 공격
 
 ● 스킬 : ( Q, W, E, R )
+
+● TAP : Score board
+
+● 1~4 keys : Pet Animation
 
 3️⃣ 주요 기능 / 시스템
 ---
